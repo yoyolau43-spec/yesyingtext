@@ -6,7 +6,7 @@
     <title>YesYing - Professional Metal Houseware Manufacturer</title>
     <meta name="description" content="YesYing is a professional metal houseware and wire products manufacturer in China, with BSCI & LFGB certification. We supply fruit baskets, bathroom shelves, wine racks and more.">
     
-    <!-- 外部资源引入 -->
+    <!-- 外部资源引入（GitHub Pages兼容版） -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@
     <!-- 自定义样式 -->
     <style type="text/tailwindcss">
         @layer utilities {
-            /* 保留所有样式，无需修改 */
+            /* 基础样式 */
             .content-auto { content-visibility: auto; }
             .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
             .card-hover { transition: all 0.3s ease; }
@@ -128,7 +128,7 @@
             .clickable-card { cursor: pointer; }
             .clickable-card a { @apply flex flex-col h-full w-full no-underline; color: inherit; }
             
-            /* 新增产品详情页样式 */
+            /* 产品详情弹窗样式 */
             .product-detail-modal {
                 @apply fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 hidden;
             }
@@ -145,11 +145,12 @@
 <body class="font-sans text-gray-800 bg-gray-50 leading-relaxed page-home">
     <nav class="bg-white shadow-md fixed w-full z-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <!-- ========== LOGO修改位置 1：导航栏LOGO（已替换为image/logo.jpg） ========== -->
+            <!-- LOGO：已替换为指定路径 yesyingtext/image/logo.jpg -->
             <a href="#home" class="flex items-center gap-2">
-                <img src="image/logo.jpg" 
+                <img src="https://raw.githubusercontent.com/yesyingtext/yesyingtext/main/image/logo.jpg" 
                      alt="YesYing Logo" 
-                     class="logo-img">
+                     class="logo-img"
+                     onerror="this.src='https://picsum.photos/id/28/100/56';"> <!-- 备用图 -->
             </a>
             
             <div class="hidden md:flex space-x-8">
@@ -179,7 +180,7 @@
     <section id="home" class="pt-28 pb-20 md:pt-36 md:pb-28 relative overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div id="heroCarousel" class="h-full w-full">
-                <!-- 替换本地背景图为你的实际背景图URL -->
+                <!-- 轮播图：使用公共占位图，避免本地路径问题 -->
                 <div class="carousel-item absolute inset-0 bg-cover bg-center opacity-100 transition-opacity duration-1000" 
                      style="background-image: url('https://picsum.photos/id/20/1920/1080');">
                     <div class="absolute inset-0 bg-primary/80"></div>
@@ -215,10 +216,11 @@
 
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10">
             <div class="mb-8 flex justify-center">
-                <!-- ========== LOGO修改位置 2：首页轮播区LOGO（已替换为image/logo.jpg） ========== -->
-                <img src="image/logo.jpg" 
+                <!-- Hero区LOGO：已替换为指定路径 yesyingtext/image/logo.jpg -->
+                <img src="https://raw.githubusercontent.com/yesyingtext/yesyingtext/main/image/logo.jpg" 
                      alt="YesYing Logo" 
-                     class="logo-hero bg-white/10 p-3 rounded-sm backdrop-blur-sm">
+                     class="logo-hero bg-white/10 p-3 rounded-sm backdrop-blur-sm"
+                     onerror="this.src='https://picsum.photos/id/28/120/120';"> <!-- 备用图 -->
             </div>
             
             <h2 class="text-[clamp(1.8rem,4vw,2.8rem)] mb-6 font-light leading-tight tracking-wide">
@@ -292,12 +294,11 @@
         </div>
     </section>
 
-    <!-- ========== 已优化的 Main Products 区域（居中+大间距） ========== -->
+    <!-- Main Products 区域（居中+大间距） -->
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="product-category-title">Main Products</h2>
             
-            <!-- 关键优化：gap增大+max-w-6xl mx-auto 强制居中 -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 md:gap-12 lg:gap-16 max-w-6xl mx-auto">
                 <div class="product-card clickable-card">
                     <a href="#products" target="_self" title="View All Shower Chair Products">
@@ -345,7 +346,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
                 <!-- 产品1：Chrome Metal Hammock Fruit Basket -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full product-item" 
-                     data-product-id="1" 
+                     data-product-id="shower-chair-001" 
                      data-product-name="Chrome Metal Hammock Fruit Basket"
                      data-product-price="$3.10-$4.10"
                      data-product-moq="500 pcs"
@@ -369,7 +370,7 @@
                 
                 <!-- 产品2：3 Tier Triangle Bathroom Shelf -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full product-item"
-                     data-product-id="2"
+                     data-product-id="bathroom-shelf-001"
                      data-product-name="3 Tier Triangle Bathroom Shelf"
                      data-product-price="$3.29-$4.29"
                      data-product-moq="500 pcs"
@@ -393,7 +394,7 @@
                 
                 <!-- 产品3：8 Bottles Black Metal Wine Rack -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full product-item"
-                     data-product-id="3"
+                     data-product-id="wine-rack-001"
                      data-product-name="8 Bottles Black Metal Wine Rack"
                      data-product-price="$2.90-$3.90"
                      data-product-moq="500 pcs"
@@ -416,7 +417,7 @@
                 
                 <!-- 产品4：Rose Gold Bathroom Wire Basket -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full product-item"
-                     data-product-id="4"
+                     data-product-id="bathroom-basket-001"
                      data-product-name="Rose Gold Bathroom Wire Basket"
                      data-product-price="$1.10-$2.10"
                      data-product-moq="500 pcs"
@@ -486,7 +487,7 @@
                 
                 <!-- 产品7：Rooster Design Egg Basket -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full product-item"
-                     data-product-id="7"
+                     data-product-id="egg-basket-001"
                      data-product-name="Rooster Design Egg Basket"
                      data-product-price="$2.10-$3.10"
                      data-product-moq="500 pcs"
@@ -662,10 +663,11 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0 flex items-center gap-4">
-                    <!-- ========== LOGO修改位置 3：页脚LOGO（已替换为image/logo.jpg） ========== -->
-                    <img src="image/logo.jpg" 
+                    <!-- 页脚LOGO：已替换为指定路径 yesyingtext/image/logo.jpg -->
+                    <img src="https://raw.githubusercontent.com/yesyingtext/yesyingtext/main/image/logo.jpg" 
                          alt="YesYing Logo" 
-                         class="logo-footer">
+                         class="logo-footer"
+                         onerror="this.src='https://picsum.photos/id/28/100/48';"> <!-- 备用图 -->
                     <div>
                         <h3 class="text-xl font-bold">YesYing</h3>
                         <p class="text-gray-400 mt-1">Jiangmen Xinhui Yexin Hardware Products Co., Ltd.</p>
@@ -679,14 +681,18 @@
     </footer>
 
     <script>
-        // 1. 平滑滚动
+        // 1. 平滑滚动（适配GitHub Pages锚点）
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                document.getElementById('mobileMenu').classList.add('hidden');
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
             });
         });
         
