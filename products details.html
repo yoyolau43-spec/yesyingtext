@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - YesYing Hardware</title>
+    <meta name="description" content="YesYing Hardware - High-quality metal household products factory direct supply">
+    
+    <!-- 外部资源引入 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind 自定义配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7A5C43',
+                        secondary: '#222222',
+                        accent: '#F8F5F0',
+                        dark: '#1A1A1A',
+                        light: '#F9F9F9',
+                        hot: '#E53E3E' // 红色标签专用色
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'product': '0 4px 20px rgba(0, 0, 0, 0.08)',
+                        'product-hover': '0 8px 30px rgba(0, 0, 0, 0.12)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义样式 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            /* 基础通用样式 */
+            .content-auto { content-visibility: auto; }
+            .transition-base { transition: all 0.3s ease-in-out; }
+            .text-balance { text-wrap: balance; }
+            
+            /* 按钮样式 */
+            .btn-primary {
+                @apply bg-primary text-white font-medium py-3 px-8 rounded-lg transition-base hover:bg-primary/90 hover:shadow-lg;
+            }
+            .btn-outline {
+                @apply border-2 border-primary text-primary font-medium py-3 px-8 rounded-lg transition-base hover:bg-primary hover:text-white hover:shadow-lg;
+            }
+            
+            /* 产品详情页专属样式 */
+            .product-badge { 
+                @apply bg-hot text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1; 
+            }
+            .spec-item { @apply flex justify-between py-2 border-b border-gray-100; }
+            .spec-label { @apply text-gray-600 font-medium; }
+            .spec-value { @apply text-secondary font-normal; }
+            .thumbnail-img { @apply rounded-md shadow-sm cursor-pointer hover:opacity-80 transition-base; }
+            .logo-img { max-height: 56px; width: auto; }
+            .logo-footer { max-height: 48px; width: auto; }
+        }
+    </style>
+</head>
+
+<body class="font-inter text-gray-800 bg-light">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo - 【修改路径】：image/logo.jpg → yesyingtext/image/logo.jpg -->
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="yesyingtext/image/logo.jpg" alt="YesYing Logo" class="logo-img">
+            </a>
+            
+            <!-- 桌面端菜单 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#home" class="hover:text-primary transition-base font-medium">Home</a>
+                <a href="index.html#products" class="text-primary font-medium">Products</a>
+                <a href="index.html#about" class="hover:text-primary transition-base font-medium">About Us</a>
+                <a href="index.html#advantages" class="hover:text-primary transition-base font-medium">Why Us</a>
+                <a href="index.html#contact" class="hover:text-primary transition-base font-medium">Contact</a>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <button class="md:hidden text-gray-700 focus:outline-none" id="mobileMenuBtn">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端菜单内容 -->
+        <div class="md:hidden hidden bg-white" id="mobileMenu">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="index.html#home" class="hover:text-primary transition-base font-medium py-2">Home</a>
+                <a href="index.html#products" class="text-primary font-medium py-2">Products</a>
+                <a href="index.html#about" class="hover:text-primary transition-base font-medium py-2">About Us</a>
+                <a href="index.html#advantages" class="hover:text-primary transition-base font-medium py-2">Why Us</a>
+                <a href="index.html#contact" class="hover:text-primary transition-base font-medium py-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 详情页主体内容 -->
+    <main class="pt-32 pb-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- 面包屑导航 -->
+            <div class="mb-8 text-sm text-gray-600">
+                <a href="index.html" class="hover:text-primary transition-base">Home</a> / 
+                <a href="index.html#products" class="hover:text-primary transition-base">Products</a> / 
+                <span id="breadcrumb-product" class="text-primary font-medium">Product Name</span>
+            </div>
+            
+            <!-- 产品核心信息区 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+                <!-- 产品图片展示区 -->
+                <div class="space-y-6">
+                    <!-- 主图 -->
+                    <div class="rounded-lg shadow-product overflow-hidden">
+                        <img id="main-product-img" src="yesyingtext/image/fruit-basket/main.jpg" alt="Product Image" class="w-full h-auto object-cover">
+                    </div>
+                    
+                    <!-- 缩略图 -->
+                    <div class="grid grid-cols-4 gap-4">
+                        <img id="thumb1" src="yesyingtext/image/fruit-basket/thumb1.jpg" alt="Thumbnail 1" class="thumbnail-img" onclick="changeMainImage(this.src)">
+                        <img id="thumb2" src="yesyingtext/image/fruit-basket/thumb2.jpg" alt="Thumbnail 2" class="thumbnail-img" onclick="changeMainImage(this.src)">
+                        <img id="thumb3" src="yesyingtext/image/fruit-basket/thumb3.jpg" alt="Thumbnail 3" class="thumbnail-img" onclick="changeMainImage(this.src)">
+                        <img id="thumb4" src="yesyingtext/image/fruit-basket/thumb4.jpg" alt="Thumbnail 4" class="thumbnail-img" onclick="changeMainImage(this.src)">
+                    </div>
+                </div>
+                
+                <!-- 产品信息区 -->
+                <div class="space-y-8">
+                    <!-- 产品标题 -->
+                    <h1 id="product-title" class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-secondary text-balance">Chrome Metal Hammock Fruit Basket</h1>
+                    
+                    <!-- 价格与标签 -->
+                    <div class="flex flex-wrap items-center gap-4">
+                        <span id="product-price" class="text-2xl lg:text-3xl font-bold text-primary">$3.10-$4.10</span>
+                        <span id="product-badge" class="product-badge">
+                            🔥 BEST SELLER
+                        </span>
+                    </div>
+                    
+                    <!-- 产品简短描述 -->
+                    <p id="product-short-desc" class="text-gray-600 leading-relaxed">
+                        High-quality chrome metal hammock fruit basket with banana fruit hanger holder, perfect for kitchen countertop use. Durable, rust-resistant, and stylish design to keep fruits fresh and organized.
+                    </p>
+                    
+                    <!-- 产品参数表 -->
+                    <div class="bg-white p-6 rounded-lg shadow-product">
+                        <h3 class="text-lg font-semibold mb-4 text-secondary">Product Specifications</h3>
+                        <div id="product-specs" class="space-y-1">
+                            <!-- 参数自动填充 -->
+                        </div>
+                    </div>
+                    
+                    <!-- 操作按钮 -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a href="index.html#contact" class="btn-primary text-center">Get Quote Now</a>
+                        <a href="index.html#products" class="btn-outline text-center">Back to Products</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 产品详细描述 -->
+            <div class="mt-16 bg-white p-8 rounded-lg shadow-product">
+                <h2 class="text-2xl font-bold text-secondary mb-6">Detailed Description</h2>
+                <div id="product-detail-desc" class="text-gray-600 leading-relaxed space-y-4">
+                    <!-- 详细描述自动填充 -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0 flex items-center gap-4">
+                    <!-- Logo - 【修改路径】：image/logo.jpg → yesyingtext/image/logo.jpg -->
+                    <img src="yesyingtext/image/logo.jpg" alt="YesYing Logo" class="logo-footer">
+                    <div>
+                        <h3 class="text-xl font-bold">YesYing</h3>
+                        <p class="text-gray-400 mt-1">Jiangmen Xinhui Yexin Hardware Products Co., Ltd.</p>
+                    </div>
+                </div>
+                <div class="text-gray-400 text-center md:text-right">
+                    © 2026 YesYing Hardware. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 核心交互脚本 -->
+    <script>
+        // 1. 移动端菜单切换
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 2. 缩略图切换主图
+        function changeMainImage(src) {
+            const mainImg = document.getElementById('main-product-img');
+            mainImg.src = src;
+            mainImg.alt = document.getElementById('product-title').textContent;
+        }
+
+        // 3. 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
+            });
+        });
+
+        // 4. 产品数据自动匹配逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            // 产品数据库（新增产品只需在这里加数据）
+            const productDatabase = {
+                // 产品1：水果篮
+                'fruit-basket-111': {
+                    name: 'Chrome Metal Hammock Fruit Basket',
+                    price: '$3.10-$4.10',
+                    badge: 'BEST SELLER',
+                    shortDesc: 'High-quality chrome metal hammock fruit basket with banana fruit hanger holder, perfect for kitchen countertop use. Durable, rust-resistant, and stylish design to keep fruits fresh and organized.',
+                    mainImage: 'yesyingtext/image/fruit-basket/main.jpg', // 【同步修改产品图片路径】
+                    thumbnails: [
+                        'yesyingtext/image/fruit-basket/thumb1.jpg',
+                        'yesyingtext/image/fruit-basket/thumb2.jpg',
+                        'yesyingtext/image/fruit-basket/thumb3.jpg',
+                        'yesyingtext/image/fruit-basket/thumb4.jpg'
+                    ],
+                    specifications: [
+                        { label: 'Material', value: 'Chrome Plated Metal Wire' },
+                        { label: 'Product Size', value: '30x25x18 cm' },
+                        { label: 'Product Weight', value: '0.85 kg' },
+                        { label: 'Carton Size', value: '50x40x35 cm' },
+                        { label: 'MOQ', value: '500 pcs' },
+                        { label: 'Lead Time', value: '25-30 days' },
+                        { label: 'Certification', value: 'BSCI, LFGB' },
+                        { label: 'Payment Terms', value: 'T/T, L/C, PayPal' }
+                    ],
+                    detailedDesc: `
+                        <p>Our chrome metal hammock fruit basket is designed to provide a stylish and practical solution for fruit storage in kitchens, restaurants, and hotels. The hammock-style design keeps fruits ventilated, preventing mold and extending freshness.</p>
+                        <p>The built-in banana hanger holder keeps bananas separate, avoiding bruising and maintaining their ripeness. Made of high-quality metal wire with chrome plating, it is rust-resistant, easy to clean, and durable for long-term use.</p>
+                        <p>Customization options are available for size, color, and logo printing to meet your specific requirements. We offer competitive factory-direct prices and ensure on-time delivery for all orders.</p>
+                    `
+                },
+                // 产品2：浴室三角架
+                'bathroom-shelf-112': {
+                    name: '3 Tier Triangle Bathroom Shelf',
+                    price: '$3.29-$4.29',
+                    badge: 'NEW',
+                    shortDesc: '3 tier triangle bathroom shelf made of chrome metal, large capacity corner shelf for bathroom storage. Easy to install, rust-resistant, and space-saving design.',
+                    mainImage: 'yesyingtext/image/bathroom-shelf/main.jpg', // 【同步修改产品图片路径】
+                    thumbnails: [
+                        'yesyingtext/image/bathroom-shelf/thumb1.jpg',
+                        'yesyingtext/image/bathroom-shelf/thumb2.jpg',
+                        'yesyingtext/image/bathroom-shelf/thumb3.jpg',
+                        'yesyingtext/image/bathroom-shelf/thumb4.jpg'
+                    ],
+                    specifications: [
+                        { label: 'Material', value: 'Chrome Plated Steel' },
+                        { label: 'Product Size', value: '22x22x60 cm' },
+                        { label: 'Product Weight', value: '1.2 kg' },
+                        { label: 'Carton Size', value: '65x25x25 cm' },
+                        { label: 'MOQ', value: '500 pcs' },
+                        { label: 'Lead Time', value: '20-25 days' },
+                        { label: 'Certification', value: 'BSCI, LFGB' },
+                        { label: 'Payment Terms', value: 'T/T, L/C, PayPal' }
+                    ],
+                    detailedDesc: `
+                        <p>Our 3 tier triangle bathroom shelf is designed to maximize corner space in bathrooms, providing ample storage for toiletries, towels, and other bathroom essentials. The triangular shape fits perfectly into any corner, saving valuable floor and counter space.</p>
+                        <p>Made of high-quality steel with chrome plating, this shelf is rust-resistant and durable, suitable for wet bathroom environments. Each tier has a raised edge to prevent items from falling off, and the sturdy construction ensures stability even when fully loaded.</p>
+                        <p>Easy to assemble with included hardware, no drilling required for most installations. Custom sizes and finishes (black, rose gold) are available upon request.</p>
+                    `
+                },
+                // 产品3：红酒架
+                'wine-rack-113': {
+                    name: '8 Bottles Black Metal Wine Rack',
+                    price: '$2.90-$3.90',
+                    badge: '',
+                    shortDesc: '8 bottles black metal wine rack, steel durable wine stand holder for home bar, kitchen, or restaurant use. Stylish and space-saving design.',
+                    mainImage: 'yesyingtext/image/wine-rack/main.jpg', // 【同步修改产品图片路径】
+                    thumbnails: [
+                        'yesyingtext/image/wine-rack/thumb1.jpg',
+                        'yesyingtext/image/wine-rack/thumb2.jpg',
+                        'yesyingtext/image/wine-rack/thumb3.jpg',
+                        'yesyingtext/image/wine-rack/thumb4.jpg'
+                    ],
+                    specifications: [
+                        { label: 'Material', value: 'Powder Coated Steel' },
+                        { label: 'Product Size', value: '35x20x28 cm' },
+                        { label: 'Product Weight', value: '1.0 kg' },
+                        { label: 'Carton Size', value: '40x25x30 cm' },
+                        { label: 'MOQ', value: '500 pcs' },
+                        { label: 'Lead Time', value: '15-20 days' },
+                        { label: 'Certification', value: 'BSCI' },
+                        { label: 'Payment Terms', value: 'T/T, L/C, PayPal' }
+                    ],
+                    detailedDesc: `
+                        <p>Our 8 bottles black metal wine rack is the perfect storage solution for wine enthusiasts. Made of sturdy steel with a sleek black powder coating, it provides both style and functionality for home bars, kitchens, or commercial spaces.</p>
+                        <p>The rack holds up to 8 standard wine bottles horizontally, keeping the corks moist and preventing wine from spoiling. The compact design fits easily on countertops or shelves, saving space while displaying your wine collection beautifully.</p>
+                        <p>No assembly required - ready to use right out of the box. Custom sizes (6, 12, 16 bottles) and colors (white, chrome) are available.</p>
+                    `
+                },
+                // 产品4：玫瑰金浴室篮
+                'bathroom-basket-114': {
+                    name: 'Rose Gold Bathroom Wire Basket',
+                    price: '$1.10-$2.10',
+                    badge: '',
+                    shortDesc: 'Rose gold bathroom wire basket for shoes, cloth, kitchen pantry organizing. Lightweight, durable, and stylish rose gold finish.',
+                    mainImage: 'yesyingtext/image/bathroom-basket/main.jpg', // 【同步修改产品图片路径】
+                    thumbnails: [
+                        'yesyingtext/image/bathroom-basket/thumb1.jpg',
+                        'yesyingtext/image/bathroom-basket/thumb2.jpg',
+                        'yesyingtext/image/bathroom-basket/thumb3.jpg',
+                        'yesyingtext/image/bathroom-basket/thumb4.jpg'
+                    ],
+                    specifications: [
+                        { label: 'Material', value: 'Iron Wire with Rose Gold Coating' },
+                        { label: 'Product Size', value: '38x25x15 cm' },
+                        { label: 'Product Weight', value: '0.6 kg' },
+                        { label: 'Carton Size', value: '40x28x18 cm' },
+                        { label: 'MOQ', value: '500 pcs' },
+                        { label: 'Lead Time', value: '18-23 days' },
+                        { label: 'Certification', value: 'BSCI' },
+                        { label: 'Payment Terms', value: 'T/T, L/C' }
+                    ],
+                    detailedDesc: `
+                        <p>Our rose gold bathroom wire basket combines functionality with modern style, perfect for organizing shoes, clothes, toiletries, or kitchen pantry items. The rose gold finish adds a touch of elegance to any space.</p>
+                        <p>Made of lightweight but durable iron wire, it is easy to move and clean. The open wire design allows for ventilation, preventing mold and mildew build-up. Stackable design saves space when not in use.</p>
+                        <p>Available in multiple sizes to fit your storage needs. Custom colors (black, white, chrome) are also available.</p>
+                    `
+                },
+                // 产品5：鸡蛋篮
+                'egg-basket-117': {
+                    name: 'Rooster Design Egg Basket',
+                    price: '$2.10-$3.10',
+                    badge: '30% OFF',
+                    shortDesc: 'Rooster design egg basket with handmade knitting craft, vintage style for egg storage and display.',
+                    mainImage: 'yesyingtext/image/egg-basket/main.jpg', // 【同步修改产品图片路径】
+                    thumbnails: [
+                        'yesyingtext/image/egg-basket/thumb1.jpg',
+                        'yesyingtext/image/egg-basket/thumb2.jpg',
+                        'yesyingtext/image/egg-basket/thumb3.jpg',
+                        'yesyingtext/image/egg-basket/thumb4.jpg'
+                    ],
+                    specifications: [
+                        { label: 'Material', value: 'Iron Wire + Handmade Knitting' },
+                        { label: 'Product Size', value: '28x20x22 cm' },
+                        { label: 'Product Weight', value: '0.75 kg' },
+                        { label: 'Carton Size', value: '30x22x25 cm' },
+                        { label: 'MOQ', value: '500 pcs' },
+                        { label: 'Lead Time', value: '18-25 days' },
+                        { label: 'Certification', value: 'BSCI' },
+                        { label: 'Payment Terms', value: 'T/T, L/C' }
+                    ],
+                    detailedDesc: `
+                        <p>Our rooster design egg basket is made of high-quality iron wire with handmade knitting craft, featuring a vintage style that adds charm to any kitchen. The rooster shape is both decorative and functional, perfect for storing and displaying eggs.</p>
+                        <p>Durable and easy to clean, it can hold up to 18 eggs and is also suitable for small fruits or kitchen utensils. The sturdy base ensures stability on countertops.</p>
+                        <p>Custom designs and sizes are available, including chicken, duck, or other animal shapes to meet your market needs.</p>
+                    `
+                }
+                // ========== 新增产品示例（复制以下模板修改） ==========
+                // '新产品ID-数字': {
+                //     name: '产品名称',
+                //     price: '价格区间',
+                //     badge: '标签（空则写''）',
+                //     shortDesc: '简短描述',
+                //     mainImage: 'yesyingtext/image/产品文件夹名/main.jpg', // 【新增产品需同步路径】
+                //     thumbnails: [
+                //         'yesyingtext/image/产品文件夹名/thumb1.jpg',
+                //         'yesyingtext/image/产品文件夹名/thumb2.jpg',
+                //         'yesyingtext/image/产品文件夹名/thumb3.jpg',
+                //         'yesyingtext/image/产品文件夹名/thumb4.jpg'
+                //     ],
+                //     specifications: [
+                //         { label: 'Material', value: '材质' },
+                //         { label: 'Product Size', value: '产品尺寸' },
+                //         { label: 'Product Weight', value: '产品重量' },
+                //         { label: 'Carton Size', value: '外箱尺寸' },
+                //         { label: 'MOQ', value: '最小起订量' },
+                //         { label: 'Lead Time', value: '交货期' },
+                //         { label: 'Certification', value: '认证' },
+                //         { label: 'Payment Terms', value: '付款方式' }
+                //     ],
+                //     detailedDesc: `
+                //         <p>详细描述第一段</p>
+                //         <p>详细描述第二段</p>
+                //     `
+                // },
+            };
+
+            // 读取URL中的产品ID并渲染数据
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id') || 'fruit-basket-111';
+            const currentProduct = productDatabase[productId] || productDatabase['fruit-basket-111'];
+
+            // 填充页面内容
+            document.getElementById('breadcrumb-product').textContent = currentProduct.name;
+            document.getElementById('product-title').textContent = currentProduct.name;
+            document.getElementById('product-price').textContent = currentProduct.price;
+            document.getElementById('product-short-desc').textContent = currentProduct.shortDesc;
+            document.getElementById('main-product-img').src = currentProduct.mainImage;
+            document.getElementById('main-product-img').alt = currentProduct.name;
+            
+            // 渲染标签（带🔥emoji）
+            const badgeElement = document.getElementById('product-badge');
+            if (currentProduct.badge) {
+                badgeElement.innerHTML = `🔥 ${currentProduct.badge}`;
+                badgeElement.style.display = 'inline-flex';
+            } else {
+                badgeElement.style.display = 'none';
+            }
+
+            // 渲染参数
+            const specsContainer = document.getElementById('product-specs');
+            specsContainer.innerHTML = '';
+            currentProduct.specifications.forEach(spec => {
+                specsContainer.innerHTML += `
+                    <div class="spec-item">
+                        <span class="spec-label">${spec.label}</span>
+                        <span class="spec-value">${spec.value}</span>
+                    </div>
+                `;
+            });
+
+            // 渲染详细描述
+            document.getElementById('product-detail-desc').innerHTML = currentProduct.detailedDesc;
+
+            // 渲染缩略图
+            const thumbElements = [
+                document.getElementById('thumb1'),
+                document.getElementById('thumb2'),
+                document.getElementById('thumb3'),
+                document.getElementById('thumb4')
+            ];
+            thumbElements.forEach((thumb, index) => {
+                thumb.src = currentProduct.thumbnails[index];
+                thumb.alt = `${currentProduct.name} Thumbnail ${index+1}`;
+            });
+        });
+    </script>
+</body>
+</html>
