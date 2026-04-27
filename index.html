@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YesYing - Professional Metal Houseware Manufacturer</title>
-    <meta name="description" content="YesYing is a professional metal houseware and wire products manufacturer in China, with BSCI & LFGB certification. We supply fruit baskets, bathroom shelves, wine racks and more.">
+    <title>YesYing Hardware - High-quality Metal Household Products</title>
+    <meta name="description" content="YesYing Hardware - Factory direct supply of metal household products, fruit baskets, bathroom shelves, wine racks, etc.">
     
     <!-- 外部资源引入 -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind 配置 -->
+    <!-- Tailwind 自定义配置 -->
     <script>
         tailwind.config = {
             theme: {
@@ -21,18 +23,15 @@
                         secondary: '#222222',
                         accent: '#F8F5F0',
                         dark: '#1A1A1A',
+                        light: '#F9F9F9',
+                        hot: '#E53E3E'
                     },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
                     },
-                    lineHeight: {
-                        'tight': '1.2',
-                        'normal': '1.5',
-                        'relaxed': '1.625',
-                    },
-                    spacing: {
-                        '18': '4.5rem',
-                        '88': '22rem',
+                    boxShadow: {
+                        'product': '0 4px 20px rgba(0, 0, 0, 0.08)',
+                        'product-hover': '0 8px 30px rgba(0, 0, 0, 0.12)'
                     }
                 }
             }
@@ -42,643 +41,281 @@
     <!-- 自定义样式 -->
     <style type="text/tailwindcss">
         @layer utilities {
-            /* 保留所有样式，无需修改 */
+            /* 基础通用样式 */
             .content-auto { content-visibility: auto; }
-            .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-            .card-hover { transition: all 0.3s ease; }
-            .card-hover:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            }
-            .badge { @apply bg-secondary text-white text-xs font-bold px-2 py-1 rounded; }
-            .logo-img { max-height: 56px; width: auto; }
-            .logo-hero { max-height: 120px; width: auto; }
-            .logo-footer { max-height: 48px; width: auto; }
-            .logo-text { font-weight: 700; color: #7A5C43; font-size: 1.5rem; }
-            .icon-large { font-size: 2.5rem !important; }
-            .icon-extra-large { font-size: 3rem !important; }
-            .product-category-title {
-                @apply text-center text-[clamp(1.5rem,3vw,2.25rem)] font-light uppercase tracking-wider text-gray-700 mb-12 relative;
-                letter-spacing: 0.1em;
-                line-height: 1.2;
-            }
-            .product-category-title::before,
-            .product-category-title::after {
-                content: "";
-                @apply absolute top-1/2 w-24 md:w-32 h-px bg-gray-300;
-            }
-            .product-category-title::before { @apply right-1/2 mr-6; }
-            .product-category-title::after { @apply left-1/2 ml-6; }
-            .product-card { @apply bg-white rounded-lg overflow-hidden card-hover flex flex-col h-full border border-gray-100; }
-            .product-img-container { @apply flex-grow flex items-center justify-center p-6 bg-gray-50; }
-            .product-img { @apply max-h-48 w-auto object-contain; }
-            .product-name { @apply p-5 text-center font-medium text-secondary bg-white; font-size: 1rem; line-height: 1.4; }
-            .section-title {
-                @apply text-[clamp(1.75rem,3vw,2.25rem)] font-bold text-center mb-4 text-primary;
-                line-height: 1.2;
-            }
-            .section-subtitle {
-                @apply text-center text-gray-600 mb-12 max-w-2xl mx-auto;
-                font-size: 1rem;
-                line-height: 1.6;
-            }
+            .transition-base { transition: all 0.3s ease-in-out; }
+            .text-balance { text-wrap: balance; }
+            
+            /* 按钮样式 */
             .btn-primary {
-                @apply inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300;
-                font-size: 1rem; line-height: 1.2;
-            }
-            .btn-secondary {
-                @apply inline-block bg-secondary hover:bg-secondary/90 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300;
-                font-size: 1rem; line-height: 1.2;
+                @apply bg-primary text-white font-medium py-3 px-8 rounded-lg transition-base hover:bg-primary/90 hover:shadow-lg;
             }
             .btn-outline {
-                @apply inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300;
-                font-size: 1rem; line-height: 1.2;
+                @apply border-2 border-primary text-primary font-medium py-3 px-8 rounded-lg transition-base hover:bg-primary hover:text-white hover:shadow-lg;
             }
-            .hero-btn {
-                @apply px-10 py-4 text-lg font-medium rounded-lg transition-colors duration-300;
-                line-height: 1.2; letter-spacing: 0.02em;
-            }
-            .hot-products-section { position: relative; overflow: hidden; }
-            .hot-products-bg {
-                position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-                background-image: url('https://picsum.photos/id/132/1920/1080');
-                background-size: cover; background-position: center; background-repeat: no-repeat;
-                opacity: 0.2; z-index: 0;
-            }
-            .hot-products-content { position: relative; z-index: 1; }
-            .product-card-content { @apply p-4 flex flex-col h-[180px]; }
-            .product-title {
-                @apply font-semibold text-lg mb-2 text-secondary h-16;
-                display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-            }
-            .product-desc {
-                @apply text-gray-600 text-sm mb-2 h-10;
-                display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
-            }
-            .product-card-price-row { @apply flex justify-between items-center my-2 h-8; }
-            .product-price { @apply text-primary font-medium text-lg w-28 text-left; }
-            .product-moq { @apply text-gray-500 text-sm w-24 text-right; }
-            .product-card-btn-container { @apply mt-0; margin-top: auto; }
-            .product-card-btn-container .btn-primary {
-                @apply w-full py-2 h-12 flex items-center justify-center;
-                padding: 0 !important;
-            }
-            .cert-card { @apply w-48 h-48 bg-white rounded-lg shadow-md flex items-center justify-center mb-4 overflow-hidden; }
-            .cert-img { @apply w-full h-full object-cover; }
-            .clickable-card { cursor: pointer; }
-            .clickable-card a { @apply flex flex-col h-full w-full no-underline; color: inherit; }
+            
+            /* 产品卡片样式 */
+            .product-card { @apply bg-white rounded-lg shadow-product p-6 hover:shadow-product-hover transition-base; }
+            .logo-img { max-height: 56px; width: auto; }
+            .logo-footer { max-height: 48px; width: auto; }
         }
     </style>
 </head>
 
-<body class="font-sans text-gray-800 bg-gray-50 leading-relaxed page-home">
+<body class="font-inter text-gray-800 bg-light">
+    <!-- 导航栏 -->
     <nav class="bg-white shadow-md fixed w-full z-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <!-- ========== LOGO修改位置 1：导航栏LOGO（已替换为yesyingtext/image/logo.jpg） ========== -->
-            <a href="#home" class="flex items-center gap-2">
-                <img src="yesyingtext/image/logo.jpg" 
-                     alt="YesYing Logo" 
-                     class="logo-img">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="yesyingtext/image/logo.jpg" alt="YesYing Logo" class="logo-img">
             </a>
             
+            <!-- 桌面端菜单 -->
             <div class="hidden md:flex space-x-8">
-                <a href="#home" class="hover:text-primary transition-colors duration-300 font-medium active" data-gt="Home">Home</a>
-                <a href="#products" class="hover:text-primary transition-colors duration-300 font-medium" data-gt="Products">Products</a>
-                <a href="#about" class="hover:text-primary transition-colors duration-300 font-medium" data-gt="About Us">About Us</a>
-                <a href="#advantages" class="hover:text-primary transition-colors duration-300 font-medium" data-gt="Why Us">Why Us</a>
-                <a href="#contact" class="hover:text-primary transition-colors duration-300 font-medium" data-gt="Contact">Contact</a>
+                <a href="#home" class="hover:text-primary transition-base font-medium">Home</a>
+                <a href="#products" class="text-primary font-medium">Products</a>
+                <a href="#about" class="hover:text-primary transition-base font-medium">About Us</a>
+                <a href="#advantages" class="hover:text-primary transition-base font-medium">Why Us</a>
+                <a href="#contact" class="hover:text-primary transition-base font-medium">Contact</a>
             </div>
             
-            <button class="md:hidden text-gray-700 focus:outline-none" id="menuBtn">
+            <!-- 移动端菜单按钮 -->
+            <button class="md:hidden text-gray-700 focus:outline-none" id="mobileMenuBtn">
                 <i class="fa fa-bars text-xl"></i>
             </button>
         </div>
         
+        <!-- 移动端菜单内容 -->
         <div class="md:hidden hidden bg-white" id="mobileMenu">
             <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
-                <a href="#home" class="hover:text-primary transition-colors duration-300 font-medium py-2" data-gt="Home">Home</a>
-                <a href="#products" class="hover:text-primary transition-colors duration-300 font-medium py-2" data-gt="Products">Products</a>
-                <a href="#about" class="hover:text-primary transition-colors duration-300 font-medium py-2" data-gt="About Us">About Us</a>
-                <a href="#advantages" class="hover:text-primary transition-colors duration-300 font-medium py-2" data-gt="Why Us">Why Us</a>
-                <a href="#contact" class="hover:text-primary transition-colors duration-300 font-medium py-2" data-gt="Contact">Contact</a>
+                <a href="#home" class="hover:text-primary transition-base font-medium py-2">Home</a>
+                <a href="#products" class="text-primary font-medium py-2">Products</a>
+                <a href="#about" class="hover:text-primary transition-base font-medium py-2">About Us</a>
+                <a href="#advantages" class="hover:text-primary transition-base font-medium py-2">Why Us</a>
+                <a href="#contact" class="hover:text-primary transition-base font-medium py-2">Contact</a>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="pt-28 pb-20 md:pt-36 md:pb-28 relative overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <div id="heroCarousel" class="h-full w-full">
-                <!-- 替换本地背景图为你的实际背景图URL -->
-                <div class="carousel-item absolute inset-0 bg-cover bg-center opacity-100 transition-opacity duration-1000" 
-                     style="background-image: url('https://picsum.photos/id/20/1920/1080');">
-                    <div class="absolute inset-0 bg-primary/80"></div>
-                </div>
-                <div class="carousel-item absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000" 
-                     style="background-image: url('https://picsum.photos/id/21/1920/1080');">
-                    <div class="absolute inset-0 bg-primary/80"></div>
-                </div>
-                <div class="carousel-item absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000" 
-                     style="background-image: url('https://picsum.photos/id/22/1920/1080');">
-                    <div class="absolute inset-0 bg-primary/80"></div>
-                </div>
-                <div class="carousel-item absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000" 
-                     style="background-image: url('https://picsum.photos/id/23/1920/1080');">
-                    <div class="absolute inset-0 bg-primary/80"></div>
-                </div>
-            </div>
-            
-            <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
-                <button class="carousel-dot w-3 h-3 rounded-full bg-white/80 active" data-index="0"></button>
-                <button class="carousel-dot w-3 h-3 rounded-full bg-white/40" data-index="1"></button>
-                <button class="carousel-dot w-3 h-3 rounded-full bg-white/40" data-index="2"></button>
-                <button class="carousel-dot w-3 h-3 rounded-full bg-white/40" data-index="3"></button>
-            </div>
-            
-            <button class="carousel-control left absolute top-1/2 -translate-y-1/2 left-4 text-white text-3xl opacity-80 hover:opacity-100 transition-opacity" data-direction="prev">
-                <i class="fa fa-chevron-left"></i>
-            </button>
-            <button class="carousel-control right absolute top-1/2 -translate-y-1/2 right-4 text-white text-3xl opacity-80 hover:opacity-100 transition-opacity" data-direction="next">
-                <i class="fa fa-chevron-right"></i>
-            </button>
-        </div>
-
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10">
-            <div class="mb-8 flex justify-center">
-                <!-- ========== LOGO修改位置 2：首页轮播区LOGO（已替换为yesyingtext/image/logo.jpg） ========== -->
-                <img src="yesyingtext/image/logo.jpg" 
-                     alt="YesYing Logo" 
-                     class="logo-hero bg-white/10 p-3 rounded-sm backdrop-blur-sm">
-            </div>
-            
-            <h2 class="text-[clamp(1.8rem,4vw,2.8rem)] mb-6 font-light leading-tight tracking-wide">
-                Professional Custom Metal Houseware <br class="md:hidden"> & Wire Products Manufacturer
-            </h2>
-            
-            <p class="text-[clamp(1rem,2vw,1.25rem)] mb-10 opacity-95 max-w-3xl mx-auto leading-relaxed tracking-normal">
-                Over 9 years of production experience • BSCI, LFGB & FDA Certified • Factory Direct Supply
-            </p>
-            
-            <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-                <a href="#products" class="hero-btn bg-secondary hover:bg-secondary/90 text-white">View All Products</a>
-                <a href="#contact" class="hero-btn bg-white hover:bg-gray-100 text-primary">Get Quote Now</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="advantages" class="py-20 bg-white">
+    <!-- Hero/首页横幅 -->
+    <section id="home" class="pt-32 pb-20 bg-accent">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title mb-16">Why Choose YesYing</h2>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-                <div class="text-center p-8 card-hover bg-white rounded-lg shadow-sm">
-                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa fa-users text-primary icon-large"></i>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-secondary leading-tight text-balance">
+                        High-Quality <span class="text-primary">Metal Household Products</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Factory direct supply of chrome metal fruit baskets, bathroom shelves, wine racks, and more. Durable, stylish, and customizable to meet your business needs.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#products" class="btn-primary">View Our Products</a>
+                        <a href="#contact" class="btn-outline">Get a Quote</a>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-secondary">Professional Team</h3>
-                    <p class="text-gray-600 leading-relaxed">Strong sales and development team with rich industry experience</p>
                 </div>
-                
-                <div class="text-center p-8 card-hover bg-white rounded-lg shadow-sm">
-                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa fa-handshake-o text-primary icon-large"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4 text-secondary">Considerate Service</h3>
-                    <p class="text-gray-600 leading-relaxed">10+ years export experience, professional technical and trade consulting</p>
-                </div>
-                
-                <div class="text-center p-8 card-hover bg-white rounded-lg shadow-sm">
-                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa fa-lightbulb-o text-primary icon-large"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4 text-secondary">Creative Design</h3>
-                    <p class="text-gray-600 leading-relaxed">Continuous product innovation, OEM & ODM services available</p>
-                </div>
-                
-                <div class="text-center p-8 card-hover bg-white rounded-lg shadow-sm">
-                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa fa-check-circle text-primary icon-large"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4 text-secondary">High Quality</h3>
-                    <p class="text-gray-600 leading-relaxed">Strict material and quality control, global reputation</p>
-                </div>
-                
-                <div class="text-center p-8 card-hover bg-white rounded-lg shadow-sm">
-                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa fa-tag text-primary icon-large"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4 text-secondary">Competitive Price</h3>
-                    <p class="text-gray-600 leading-relaxed">Direct factory supply without middlemen, cost saving for you</p>
-                </div>
-                
-                <div class="text-center p-8 card-hover bg-white rounded-lg shadow-sm">
-                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa fa-truck text-primary icon-large"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4 text-secondary">On-Time Delivery</h3>
-                    <p class="text-gray-600 leading-relaxed">Sufficient production capacity guarantees on-schedule delivery</p>
+                <div class="rounded-lg shadow-lg overflow-hidden">
+                    <img src="yesyingtext/image/hero-main.jpg" alt="YesYing Hardware Products" class="w-full h-auto object-cover">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== 已优化的 Main Products 区域（居中+大间距） ========== -->
-    <section class="py-20 bg-gray-50">
+    <!-- 🔥 已整合修改后的 Hot selling Products 板块（核心修改区） -->
+    <section id="products" class="py-16 bg-light">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="product-category-title">Main Products</h2>
-            
-            <!-- 关键优化：gap增大+max-w-6xl mx-auto 强制居中 -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 md:gap-12 lg:gap-16 max-w-6xl mx-auto">
-                <div class="product-card clickable-card">
-                    <a href="#products" target="_self" title="View All Shower Chair Products">
-                        <div class="product-img-container">
-                            <img src="https://picsum.photos/id/102/200/200" alt="Shower Chair" class="product-img">
-                        </div>
-                        <div class="product-name">
-                            <h3 class="text-secondary">Shower Chair</h3>
-                        </div>
-                    </a>
+            <h2 class="text-3xl font-bold text-center mb-12">Hot selling Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 产品1：淋浴椅（ID: shower-chair-001） -->
+                <div class="product-card">
+                    <img src="yesyingtext/image/fruit-basket/main.jpg" alt="Chrome Metal Hammock Fruit Basket" class="w-full h-64 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Chrome Metal Hammock Fruit Basket</h3>
+                    <p class="text-primary font-bold mb-4">$3.10-$4.10</p>
+                    <a href="详情页.html?id=shower-chair-001" class="btn-primary inline-block w-full text-center">View Details</a>
                 </div>
-                
-                <div class="product-card clickable-card">
-                    <a href="#products" target="_self" title="View All Shower Chair Products">
-                        <div class="product-img-container">
-                            <img src="https://picsum.photos/id/103/200/200" alt="Egg Basket" class="product-img">
-                        </div>
-                        <div class="product-name">
-                            <h3 class="text-secondary">Egg Basket</h3>
-                        </div>
-                    </a>
+
+                <!-- 产品2：浴室三角架（ID: bathroom-shelf-001） -->
+                <div class="product-card">
+                    <img src="yesyingtext/image/bathroom-shelf/main.jpg" alt="3 Tier Triangle Bathroom Shelf" class="w-full h-64 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2">3 Tier Triangle Bathroom Shelf</h3>
+                    <p class="text-primary font-bold mb-4">$3.29-$4.29</p>
+                    <a href="详情页.html?id=bathroom-shelf-001" class="btn-primary inline-block w-full text-center">View Details</a>
                 </div>
-                
-                <div class="product-card clickable-card">
-                    <a href="#products" target="_self" title="View All Shower Chair Products">
-                        <div class="product-img-container">
-                            <img src="https://picsum.photos/id/104/200/200" alt="Fruit Basket" class="product-img">
-                        </div>
-                        <div class="product-name">
-                            <h3 class="text-secondary">Fruit Basket</h3>
-                        </div>
-                    </a>
+
+                <!-- 产品3：红酒架（ID: wine-rack-001） -->
+                <div class="product-card">
+                    <img src="yesyingtext/image/wine-rack/main.jpg" alt="8 Bottles Black Metal Wine Rack" class="w-full h-64 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2">8 Bottles Black Metal Wine Rack</h3>
+                    <p class="text-primary font-bold mb-4">$2.90-$3.90</p>
+                    <a href="详情页.html?id=wine-rack-001" class="btn-primary inline-block w-full text-center">View Details</a>
+                </div>
+
+                <!-- 产品4：玫瑰金浴室篮（ID: bathroom-basket-001） -->
+                <div class="product-card">
+                    <img src="yesyingtext/image/bathroom-basket/main.jpg" alt="Rose Gold Bathroom Wire Basket" class="w-full h-64 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Rose Gold Bathroom Wire Basket</h3>
+                    <p class="text-primary font-bold mb-4">$1.10-$2.10</p>
+                    <a href="详情页.html?id=bathroom-basket-001" class="btn-primary inline-block w-full text-center">View Details</a>
+                </div>
+
+                <!-- 产品5：鸡蛋篮（ID: egg-basket-001） -->
+                <div class="product-card">
+                    <img src="yesyingtext/image/egg-basket/main.jpg" alt="Rooster Design Egg Basket" class="w-full h-64 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Rooster Design Egg Basket</h3>
+                    <p class="text-primary font-bold mb-4">$2.10-$3.10</p>
+                    <a href="详情页.html?id=egg-basket-001" class="btn-primary inline-block w-full text-center">View Details</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="products" class="py-20 bg-white hot-products-section">
-        <div class="hot-products-bg"></div>
-        
-        <div class="hot-products-content container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title">Hot Selling Products</h2>
-            <p class="section-subtitle">All products are factory direct supply with competitive price and fast delivery</p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center relative">
-                        <span class="badge absolute top-3 left-3">BEST SELLER</span>
-                        <img src="https://picsum.photos/id/111/400/400" alt="Chrome Metal Hammock Fruit Basket" class="w-full h-full object-cover">
-                    </div>
-                    <div class="product-card-content">
-                        <h3 class="product-title">Chrome Metal Hammock Fruit Basket</h3>
-                        <p class="product-desc">With Banana Fruit Hanger Holder</p>
-                        <div class="product-card-price-row">
-                            <span class="product-price">$3.10-$4.10</span>
-                            <span class="product-moq">MOQ: 500 pcs</span>
-                        </div>
-                        <div class="product-card-btn-container">
-                            <a href="https://yesying.en.alibaba.com/" target="_blank" class="btn-primary w-full text-center">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center relative">
-                        <span class="badge absolute top-3 left-3">NEW</span>
-                        <img src="https://picsum.photos/id/112/400/400" alt="3 Tier Triangle Bathroom Shelf" class="w-full h-full object-cover">
-                    </div>
-                    <div class="product-card-content">
-                        <h3 class="product-title">3 Tier Triangle Bathroom Shelf</h3>
-                        <p class="product-desc">Chrome Metal Big Capacity Corner Shelf</p>
-                        <div class="product-card-price-row">
-                            <span class="product-price">$3.29-$4.29</span>
-                            <span class="product-moq">MOQ: 500 pcs</span>
-                        </div>
-                        <div class="product-card-btn-container">
-                            <a href="https://yesying.en.alibaba.com/" target="_blank" class="btn-primary w-full text-center">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center">
-                        <img src="https://picsum.photos/id/113/400/400" alt="8 Bottles Black Metal Wine Rack" class="w-full h-full object-cover">
-                    </div>
-                    <div class="product-card-content">
-                        <h3 class="product-title">8 Bottles Black Metal Wine Rack</h3>
-                        <p class="product-desc">Steel Durable Wine Stand Holder</p>
-                        <div class="product-card-price-row">
-                            <span class="product-price">$2.90-$3.90</span>
-                            <span class="product-moq">MOQ: 500 pcs</span>
-                        </div>
-                        <div class="product-card-btn-container">
-                            <a href="https://yesying.en.alibaba.com/" target="_blank" class="btn-primary w-full text-center">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center">
-                        <img src="https://picsum.photos/id/114/400/400" alt="Rose Gold Bathroom Wire Basket" class="w-full h-full object-cover">
-                    </div>
-                    <div class="product-card-content">
-                        <h3 class="product-title">Rose Gold Bathroom Wire Basket</h3>
-                        <p class="product-desc">For Shoes, Cloth, Kitchen Pantry Organizing</p>
-                        <div class="product-card-price-row">
-                            <span class="product-price">$1.10-$2.10</span>
-                            <span class="product-moq">MOQ: 500 pcs</span>
-                        </div>
-                        <div class="product-card-btn-container">
-                            <a href="https://yesying.en.alibaba.com/" target="_blank" class="btn-primary w-full text-center">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center">
-                        <img src="https://picsum.photos/id/115/400/400" alt="Hanging Flower Basket" class="w-full h-full object-cover">
-                    </div>
-                    <div class="product-card-content">
-                        <h3 class="product-title">Hanging Flower Basket</h3>
-                        <p class="product-desc">With Coco Coir Liner, Indoor & Outdoor</p>
-                        <div class="product-card-price-row">
-                            <span class="product-price">$4.50-$5.00</span>
-                            <span class="product-moq">MOQ: 500 pcs</span>
-                        </div>
-                        <div class="product-card-btn-container">
-                            <a href="https://yesying.en.alibaba.com/" target="_blank" class="btn-primary w-full text-center">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center relative">
-                        <span class="badge absolute top-3 left-3">NEW ARRIVAL</span>
-                        <img src="https://picsum.photos/id/116/400/400" alt="Foldable Shower Chair" class="w-full h-full object-cover">
-                    </div>
-                    <div class="product-card-content">
-                        <h3 class="product-title">Foldable Shower Chair</h3>
-                        <p class="product-desc">For Elderly, Disabled, Pregnant, Injured</p>
-                        <div class="product-card-price-row">
-                            <span class="product-price">Contact for Price</span>
-                            <span class="product-moq">MOQ: Consult</span>
-                        </div>
-                        <div class="product-card-btn-container">
-                            <a href="https://yesying.en.alibaba.com/" target="_blank" class="btn-primary w-full text-center">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center relative">
-                        <span class="badge absolute top-3 left-3">30% OFF</span>
-                        <img src="https://picsum.photos/id/117/400/400" alt="Rooster Design Egg Basket" class="w-full h-full object-cover">
-                    </div>
-                    <div class="product-card-content">
-                        <h3 class="product-title">Rooster Design Egg Basket</h3>
-                        <p class="product-desc">Handmade Knitting Craft, Vintage Style</p>
-                        <div class="product-card-price-row">
-                            <span class="product-price">$2.10-$3.10</span>
-                            <span class="product-moq">MOQ: 500 pcs</span>
-                        </div>
-                        <div class="product-card-btn-container">
-                            <a href="https://yesying.en.alibaba.com/" target="_blank" class="btn-primary w-full text-center">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center relative">
-                        <span class="badge absolute top-3 left-3">10% OFF</span>
-                        <img src="https://picsum.photos/id/118/400/400" alt="Paper Roll Storage Holder" class="w-full h-full object-cover">
-                    </div>
-                    <div class="product-card-content">
-                        <h3 class="product-title">Paper Roll Storage Holder</h3>
-                        <p class="product-desc">Robust Iron Wire, Capacity: 4 Paper Rolls</p>
-                        <div class="product-card-price-row">
-                            <span class="product-price">Contact for Price</span>
-                            <span class="product-moq">MOQ: 500 pcs</span>
-                        </div>
-                        <div class="product-card-btn-container">
-                            <a href="https://yesying.en.alibaba.com/" target="_blank" class="btn-primary w-full text-center">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="https://yesying.en.alibaba.com/" target="_blank" class="btn-outline">
-                    View All Products on Alibaba <i class="fa fa-external-link ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 bg-gray-50">
+    <!-- About Us 板块 -->
+    <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title mb-12">Our Certifications</h2>
-            <div class="flex flex-wrap justify-center gap-16">
-                <div class="text-center">
-                    <div class="cert-card">
-                        <img src="https://picsum.photos/id/150/200/200" alt="BSCI Certificate" class="cert-img">
-                    </div>
-                    <p class="text-gray-600 font-medium text-lg">BSCI Certified</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="rounded-lg shadow-lg overflow-hidden">
+                    <img src="yesyingtext/image/about-us.jpg" alt="YesYing Factory" class="w-full h-auto object-cover">
                 </div>
-                
-                <div class="text-center">
-                    <div class="cert-card">
-                        <img src="https://picsum.photos/id/151/200/200" alt="LFGB Certificate" class="cert-img">
-                    </div>
-                    <p class="text-gray-600 font-medium text-lg">LFGB Approved</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="cert-card">
-                        <img src="https://picsum.photos/id/152/200/200" alt="FDA Certificate" class="cert-img">
-                    </div>
-                    <p class="text-gray-600 font-medium text-lg">FDA Certified</p>
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-secondary">About YesYing Hardware</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        Jiangmen Xinhui Yexin Hardware Products Co., Ltd. is a professional manufacturer of metal household products with years of experience. We specialize in producing fruit baskets, bathroom shelves, wine racks, and other metal wire products.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Our factory is equipped with advanced production equipment and a professional R&D team, ensuring high-quality products and timely delivery. We offer OEM/ODM services to meet the customized needs of global customers.
+                    </p>
+                    <a href="#contact" class="btn-primary inline-block">Contact Us</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-20 bg-white">
+    <!-- Why Us 优势板块 -->
+    <section id="advantages" class="py-16 bg-accent">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-16">
-                <div class="md:w-1/2">
-                    <div class="bg-gray-100 h-88 rounded-lg flex items-center justify-center shadow-sm">
-                        <img src="https://picsum.photos/id/160/800/400" alt="YesYing Factory" class="w-full h-full object-cover rounded-lg">
-                    </div>
+            <h2 class="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 优势1 -->
+                <div class="bg-white p-6 rounded-lg shadow-product text-center">
+                    <i class="fa fa-check-circle text-primary text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Factory Direct Price</h3>
+                    <p class="text-gray-600">No middleman markup, competitive factory-direct prices for all products.</p>
                 </div>
-                <div class="md:w-1/2">
-                    <h2 class="section-title text-left mb-8">About YesYing</h2>
-                    <p class="text-gray-600 mb-5 leading-relaxed">YESYING is located in Jiangmen City, west of the Pearl River Delta, one of the biggest hardware manufacturing bases in China.</p>
-                    <p class="text-gray-600 mb-5 leading-relaxed">Our company specializes in exporting stainless steel, metal wire and iron houseware, including kitchen, hotel and bathroom accessories. Our products are sold to over 30 countries in Europe, North and South America, Asia and Australia.</p>
-                    <p class="text-gray-600 mb-8 leading-relaxed">We insist on the principle of "Keep improving & Customer satisfaction". We keep innovating and adopt advanced production and management experience to develop new products continuously.</p>
-                    <a href="#contact" class="btn-primary">Contact Us Now</a>
+                <!-- 优势2 -->
+                <div class="bg-white p-6 rounded-lg shadow-product text-center">
+                    <i class="fa fa-shield text-primary text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">High Quality</h3>
+                    <p class="text-gray-600">Strict quality control system, all products meet international standards.</p>
+                </div>
+                <!-- 优势3 -->
+                <div class="bg-white p-6 rounded-lg shadow-product text-center">
+                    <i class="fa fa-cogs text-primary text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Customization</h3>
+                    <p class="text-gray-600">OEM/ODM services available for size, color, logo, and design.</p>
+                </div>
+                <!-- 优势4 -->
+                <div class="bg-white p-6 rounded-lg shadow-product text-center">
+                    <i class="fa fa-truck text-primary text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">On-Time Delivery</h3>
+                    <p class="text-gray-600">Reliable production schedule, ensure timely delivery for all orders.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-primary text-white">
+    <!-- Contact 联系板块 -->
+    <section id="contact" class="py-16 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-[clamp(1.75rem,3vw,2.25rem)] font-bold text-center mb-16">Contact Us</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-                <div>
-                    <div class="w-28 h-28 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa fa-envelope icon-extra-large"></i>
+            <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- 联系信息 -->
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <i class="fa fa-map-marker text-primary text-2xl mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Address</h3>
+                            <p class="text-gray-600">Jiangmen Xinhui District, Guangdong Province, China</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Email</h3>
-                    <p class="text-lg">info@yesying.com</p>
+                    <div class="flex items-start gap-4">
+                        <i class="fa fa-phone text-primary text-2xl mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Phone</h3>
+                            <p class="text-gray-600">+86 123 4567 8910</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i class="fa fa-envelope text-primary text-2xl mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Email</h3>
+                            <p class="text-gray-600">info@yesyinghardware.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i class="fa fa-clock-o text-primary text-2xl mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-1">Working Hours</h3>
+                            <p class="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM (GMT+8)</p>
+                        </div>
+                    </div>
                 </div>
-                
-                <div>
-                    <div class="w-28 h-28 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa fa-whatsapp icon-extra-large"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">WhatsApp</h3>
-                    <p class="text-lg">+86 13760543003</p>
-                </div>
-                
-                <div>
-                    <div class="w-28 h-28 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa fa-map-marker icon-extra-large"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Address</h3>
-                    <p class="text-lg">Jiangmen Xinhui, Guangdong, China</p>
+                <!-- 联系表单 -->
+                <div class="bg-accent p-8 rounded-lg shadow-product">
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-primary" placeholder="Enter your name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-primary" placeholder="Enter your email">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-primary" placeholder="Tell us about your requirements"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 页脚 -->
     <footer class="bg-dark text-white py-10">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0 flex items-center gap-4">
-                    <!-- ========== LOGO修改位置 3：页脚LOGO（已替换为yesyingtext/image/logo.jpg） ========== -->
-                    <img src="yesyingtext/image/logo.jpg" 
-                         alt="YesYing Logo" 
-                         class="logo-footer">
+                    <img src="yesyingtext/image/logo.jpg" alt="YesYing Logo" class="logo-footer">
                     <div>
                         <h3 class="text-xl font-bold">YesYing</h3>
                         <p class="text-gray-400 mt-1">Jiangmen Xinhui Yexin Hardware Products Co., Ltd.</p>
                     </div>
                 </div>
                 <div class="text-gray-400 text-center md:text-right">
-                    © 2026 YesYing. All Rights Reserved.
+                    © 2026 YesYing Hardware. All Rights Reserved.
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- 交互脚本 -->
     <script>
-        // 1. 平滑滚动
+        // 移动端菜单切换
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                document.getElementById('mobileMenu').classList.add('hidden');
-            });
-        });
-        
-        // 2. 移动端菜单切换
-        document.getElementById('menuBtn').addEventListener('click', function() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        });
-        
-        // 3. 滚动时导航栏样式变化
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('py-3');
-                nav.classList.remove('py-4');
-            } else {
-                nav.classList.add('py-4');
-                nav.classList.remove('py-3');
-            }
-        });
-
-        // 4. 轮播功能
-        document.addEventListener('DOMContentLoaded', function() {
-            const carouselItems = document.querySelectorAll('.carousel-item');
-            const carouselDots = document.querySelectorAll('.carousel-dot');
-            const controlButtons = document.querySelectorAll('.carousel-control');
-            let currentIndex = 0;
-            const totalItems = carouselItems.length;
-            const autoPlayInterval = 5000;
-            
-            function showSlide(index) {
-                carouselItems.forEach(item => {
-                    item.classList.remove('opacity-100');
-                    item.classList.add('opacity-0');
-                });
-                
-                carouselDots.forEach(dot => {
-                    dot.classList.remove('bg-white/80', 'active');
-                    dot.classList.add('bg-white/40');
-                });
-                
-                carouselItems[index].classList.remove('opacity-0');
-                carouselItems[index].classList.add('opacity-100');
-                
-                carouselDots[index].classList.remove('bg-white/40');
-                carouselDots[index].classList.add('bg-white/80', 'active');
-                
-                currentIndex = index;
-            }
-            
-            function nextSlide() {
-                let newIndex = currentIndex + 1;
-                if (newIndex >= totalItems) newIndex = 0;
-                showSlide(newIndex);
-            }
-            
-            function prevSlide() {
-                let newIndex = currentIndex - 1;
-                if (newIndex < 0) newIndex = totalItems - 1;
-                showSlide(newIndex);
-            }
-            
-            let autoplay = setInterval(nextSlide, autoPlayInterval);
-            
-            carouselDots.forEach((dot, index) => {
-                dot.addEventListener('click', function() {
-                    clearInterval(autoplay);
-                    showSlide(index);
-                    autoplay = setInterval(nextSlide, autoPlayInterval);
-                });
-            });
-            
-            controlButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    clearInterval(autoplay);
-                    if (this.dataset.direction === 'next') {
-                        nextSlide();
-                    } else {
-                        prevSlide();
-                    }
-                    autoplay = setInterval(nextSlide, autoPlayInterval);
-                });
-            });
-            
-            document.getElementById('heroCarousel').addEventListener('mouseenter', function() {
-                clearInterval(autoplay);
-            });
-            
-            document.getElementById('heroCarousel').addEventListener('mouseleave', function() {
-                autoplay = setInterval(nextSlide, autoPlayInterval);
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
             });
         });
     </script>
