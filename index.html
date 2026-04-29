@@ -147,10 +147,8 @@
     <nav class="bg-white shadow-md fixed w-full z-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <!-- LOGO -->
-            <a href="#home" class="flex items-center gap-2">
-                <img src="https://raw.githubusercontent.com/yesyingtext/yesyingtext/main/image/logo.jpg" 
-                     alt="YesYing Logo" 
-                     class="logo-img"
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="yesyingtext/image/logo.jpg" alt="YesYing Logo" class="logo-img"
                      onerror="this.src='https://picsum.photos/id/28/100/56';"> <!-- 备用图 -->
             </a>
             
@@ -224,7 +222,7 @@
         <!-- Hero区内容 -->
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10">
             <div class="mb-8 flex justify-center">
-                <img src="https://raw.githubusercontent.com/yesyingtext/yesyingtext/main/image/logo.jpg" 
+                <img src="yesyingtext/image/logo.jpg" 
                      alt="YesYing Logo" 
                      class="logo-hero bg-white/10 p-3 rounded-sm backdrop-blur-sm"
                      onerror="this.src='https://picsum.photos/id/28/120/120';"> <!-- 备用图 -->
@@ -345,139 +343,114 @@
     </section>
 
     <!-- 热销产品板块 -->
-    <section id="products" class="py-20 bg-white hot-products-section">
-        <div class="hot-products-bg"></div>
-        
-        <div class="hot-products-content container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="products" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
             <h2 class="section-title">Hot Selling Products</h2>
             <p class="section-subtitle">All products are factory direct supply with competitive price and fast delivery</p>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10">
+
                 <!-- 产品1：Chrome Metal Hammock Fruit Basket -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full product-item" 
-                     data-product-id="shower-chair-001" 
-                     data-product-name="Chrome Metal Hammock Fruit Basket"
-                     data-product-price="$3.10-$4.10"
-                     data-product-moq="500 pcs"
-                     data-product-desc="With Banana Fruit Hanger Holder, made of high-quality chrome metal, durable and rust-resistant. Perfect for kitchen fruit storage and organization.">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center relative">
+                <div class="product-card">
+                    <div class="h-96 bg-gray-100 relative">
                         <span class="badge absolute top-3 left-3">BEST SELLER</span>
                         <img src="https://picsum.photos/id/111/400/400" alt="Chrome Metal Hammock Fruit Basket" class="w-full h-full object-cover">
                     </div>
                     <div class="product-card-content">
                         <h3 class="product-title">Chrome Metal Hammock Fruit Basket</h3>
-                        <p class="product-desc">With Banana Fruit Hanger Holder</p>
+                        <p class="product-desc">With Banana Hanger Holder</p>
                         <div class="product-card-price-row">
                             <span class="product-price">$3.10-$4.10</span>
-                            <span class="product-moq">MOQ: 500 pcs</span>
+                            <span class="product-moq">MOQ: 500</span>
                         </div>
                         <div class="product-card-btn-container">
-                            <button class="btn-primary w-full text-center view-product-details">View Details</button>
+                            <!-- 已插入跳转代码 -->
+                            <a href="products-details.html?id=shower-chair-001" class="btn-primary w-full text-center">View Details</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 产品2：3 Tier Triangle Bathroom Shelf -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full product-item"
-                     data-product-id="bathroom-shelf-001"
-                     data-product-name="3 Tier Triangle Bathroom Shelf"
-                     data-product-price="$3.29-$4.29"
-                     data-product-moq="500 pcs"
-                     data-product-desc="Chrome Metal Big Capacity Corner Shelf, 3-tier design maximizes bathroom storage space. Easy to install and clean, rust-proof finish.">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center relative">
+                <div class="product-card">
+                    <div class="h-96 bg-gray-100 relative">
                         <span class="badge absolute top-3 left-3">NEW</span>
                         <img src="https://picsum.photos/id/112/400/400" alt="3 Tier Triangle Bathroom Shelf" class="w-full h-full object-cover">
                     </div>
                     <div class="product-card-content">
                         <h3 class="product-title">3 Tier Triangle Bathroom Shelf</h3>
-                        <p class="product-desc">Chrome Metal Big Capacity Corner Shelf</p>
+                        <p class="product-desc">Chrome Metal Corner Shelf</p>
                         <div class="product-card-price-row">
                             <span class="product-price">$3.29-$4.29</span>
-                            <span class="product-moq">MOQ: 500 pcs</span>
+                            <span class="product-moq">MOQ: 500</span>
                         </div>
                         <div class="product-card-btn-container">
-                            <button class="btn-primary w-full text-center view-product-details">View Details</button>
+                            <!-- 已插入跳转代码 -->
+                            <a href="products-details.html?id=bathroom-shelf-001" class="btn-primary w-full text-center">View Details</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 产品3：8 Bottles Black Metal Wine Rack -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full product-item"
-                     data-product-id="wine-rack-001"
-                     data-product-name="8 Bottles Black Metal Wine Rack"
-                     data-product-price="$2.90-$3.90"
-                     data-product-moq="500 pcs"
-                     data-product-desc="Steel Durable Wine Stand Holder, holds up to 8 wine bottles. Stylish black finish, perfect for home bar or kitchen use. Sturdy construction with anti-slip design.">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center">
+                <div class="product-card">
+                    <div class="h-96 bg-gray-100">
                         <img src="https://picsum.photos/id/113/400/400" alt="8 Bottles Black Metal Wine Rack" class="w-full h-full object-cover">
                     </div>
                     <div class="product-card-content">
                         <h3 class="product-title">8 Bottles Black Metal Wine Rack</h3>
-                        <p class="product-desc">Steel Durable Wine Stand Holder</p>
+                        <p class="product-desc">Steel Durable Wine Stand</p>
                         <div class="product-card-price-row">
                             <span class="product-price">$2.90-$3.90</span>
-                            <span class="product-moq">MOQ: 500 pcs</span>
+                            <span class="product-moq">MOQ: 500</span>
                         </div>
                         <div class="product-card-btn-container">
-                            <button class="btn-primary w-full text-center view-product-details">View Details</button>
+                            <!-- 已插入跳转代码 -->
+                            <a href="products-details.html?id=wine-rack-001" class="btn-primary w-full text-center">View Details</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 产品4：Rose Gold Bathroom Wire Basket -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full product-item"
-                     data-product-id="bathroom-basket-001"
-                     data-product-name="Rose Gold Bathroom Wire Basket"
-                     data-product-price="$1.10-$2.10"
-                     data-product-moq="500 pcs"
-                     data-product-desc="For Shoes, Cloth, Kitchen Pantry Organizing. Elegant rose gold finish, multi-purpose storage solution. Breathable wire design, easy to clean and maintain.">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center">
+                <div class="product-card">
+                    <div class="h-96 bg-gray-100">
                         <img src="https://picsum.photos/id/114/400/400" alt="Rose Gold Bathroom Wire Basket" class="w-full h-full object-cover">
                     </div>
                     <div class="product-card-content">
                         <h3 class="product-title">Rose Gold Bathroom Wire Basket</h3>
-                        <p class="product-desc">For Shoes, Cloth, Kitchen Pantry Organizing</p>
+                        <p class="product-desc">For Shoes, Cloth, Pantry</p>
                         <div class="product-card-price-row">
                             <span class="product-price">$1.10-$2.10</span>
-                            <span class="product-moq">MOQ: 500 pcs</span>
+                            <span class="product-moq">MOQ: 500</span>
                         </div>
                         <div class="product-card-btn-container">
-                            <button class="btn-primary w-full text-center view-product-details">View Details</button>
+                            <!-- 已插入跳转代码 -->
+                            <a href="products-details.html?id=bathroom-basket-001" class="btn-primary w-full text-center">View Details</a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- 产品5：Hanging Flower Basket -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full product-item"
-                     data-product-id="5"
-                     data-product-name="Hanging Flower Basket"
-                     data-product-price="$4.50-$5.00"
-                     data-product-moq="500 pcs"
-                     data-product-desc="With Coco Coir Liner, Indoor & Outdoor use. Durable metal frame with natural coco coir liner, perfect for plants and flowers. Easy to hang and maintain.">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center">
-                        <img src="https://picsum.photos/id/115/400/400" alt="Hanging Flower Basket" class="w-full h-full object-cover">
+
+                <!-- 产品5：Rooster Design Egg Basket -->
+                <div class="product-card">
+                    <div class="h-96 bg-gray-100 relative">
+                        <span class="badge absolute top-3 left-3">HOT</span>
+                        <img src="https://picsum.photos/id/117/400/400" alt="Rooster Design Egg Basket" class="w-full h-full object-cover">
                     </div>
                     <div class="product-card-content">
-                        <h3 class="product-title">Hanging Flower Basket</h3>
-                        <p class="product-desc">With Coco Coir Liner, Indoor & Outdoor</p>
+                        <h3 class="product-title">Rooster Design Egg Basket</h3>
+                        <p class="product-desc">Handmade Knitting Craft</p>
                         <div class="product-card-price-row">
-                            <span class="product-price">$4.50-$5.00</span>
-                            <span class="product-moq">MOQ: 500 pcs</span>
+                            <span class="product-price">$2.10-$3.10</span>
+                            <span class="product-moq">MOQ: 500</span>
                         </div>
                         <div class="product-card-btn-container">
-                            <button class="btn-primary w-full text-center view-product-details">View Details</button>
+                            <!-- 已插入跳转代码 -->
+                            <a href="products-details.html?id=egg-basket-001" class="btn-primary w-full text-center">View Details</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 产品6：Foldable Shower Chair -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full product-item"
-                     data-product-id="6"
-                     data-product-name="Foldable Shower Chair"
-                     data-product-price="Contact for Price"
-                     data-product-moq="Consult"
-                     data-product-desc="For Elderly, Disabled, Pregnant, Injured. Foldable design for easy storage, sturdy metal frame with anti-slip seat. Adjustable height, easy to assemble and use.">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center relative">
+                <div class="product-card">
+                    <div class="h-96 bg-gray-100 relative">
                         <span class="badge absolute top-3 left-3">NEW ARRIVAL</span>
                         <img src="https://picsum.photos/id/116/400/400" alt="Foldable Shower Chair" class="w-full h-full object-cover">
                     </div>
@@ -489,43 +462,32 @@
                             <span class="product-moq">MOQ: Consult</span>
                         </div>
                         <div class="product-card-btn-container">
-                            <button class="btn-primary w-full text-center view-product-details">View Details</button>
+                            <a href="products-details.html?id=shower-chair-002" class="btn-primary w-full text-center">View Details</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 产品7：Rooster Design Egg Basket -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full product-item"
-                     data-product-id="egg-basket-001"
-                     data-product-name="Rooster Design Egg Basket"
-                     data-product-price="$2.10-$3.10"
-                     data-product-moq="500 pcs"
-                     data-product-desc="Handmade Knitting Craft, Vintage Style. Unique rooster design, perfect for egg storage and display. Made of high-quality metal wire, durable and decorative.">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center relative">
-                        <span class="badge absolute top-3 left-3">30% OFF</span>
-                        <img src="https://picsum.photos/id/117/400/400" alt="Rooster Design Egg Basket" class="w-full h-full object-cover">
+                <!-- 产品7：Hanging Flower Basket -->
+                <div class="product-card">
+                    <div class="h-96 bg-gray-100">
+                        <img src="https://picsum.photos/id/115/400/400" alt="Hanging Flower Basket" class="w-full h-full object-cover">
                     </div>
                     <div class="product-card-content">
-                        <h3 class="product-title">Rooster Design Egg Basket</h3>
-                        <p class="product-desc">Handmade Knitting Craft, Vintage Style</p>
+                        <h3 class="product-title">Hanging Flower Basket</h3>
+                        <p class="product-desc">With Coco Coir Liner, Indoor & Outdoor</p>
                         <div class="product-card-price-row">
-                            <span class="product-price">$2.10-$3.10</span>
-                            <span class="product-moq">MOQ: 500 pcs</span>
+                            <span class="product-price">$4.50-$5.00</span>
+                            <span class="product-moq">MOQ: 500</span>
                         </div>
                         <div class="product-card-btn-container">
-                            <button class="btn-primary w-full text-center view-product-details">View Details</button>
+                            <a href="products-details.html?id=flower-basket-001" class="btn-primary w-full text-center">View Details</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- 产品8：Paper Roll Storage Holder -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover flex flex-col h-full product-item"
-                     data-product-id="8"
-                     data-product-name="Paper Roll Storage Holder"
-                     data-product-price="Contact for Price"
-                     data-product-moq="500 pcs"
-                     data-product-desc="Robust Iron Wire, Capacity: 4 Paper Rolls. Sturdy iron wire construction, space-saving design. Perfect for kitchen paper roll storage, easy to install.">
-                    <div class="h-96 bg-gray-100 flex items-center justify-center relative">
+                <div class="product-card">
+                    <div class="h-96 bg-gray-100 relative">
                         <span class="badge absolute top-3 left-3">10% OFF</span>
                         <img src="https://picsum.photos/id/118/400/400" alt="Paper Roll Storage Holder" class="w-full h-full object-cover">
                     </div>
@@ -534,13 +496,14 @@
                         <p class="product-desc">Robust Iron Wire, Capacity: 4 Paper Rolls</p>
                         <div class="product-card-price-row">
                             <span class="product-price">Contact for Price</span>
-                            <span class="product-moq">MOQ: 500 pcs</span>
+                            <span class="product-moq">MOQ: 500</span>
                         </div>
                         <div class="product-card-btn-container">
-                            <button class="btn-primary w-full text-center view-product-details">View Details</button>
+                            <a href="products-details.html?id=paper-holder-001" class="btn-primary w-full text-center">View Details</a>
                         </div>
                     </div>
                 </div>
+
             </div>
             
             <div class="text-center mt-12">
@@ -595,263 +558,374 @@
             <h2 class="section-title mb-12">Our Certifications</h2>
             <div class="flex flex-wrap justify-center gap-16">
                 <div class="text-center">
-                    <div class="cert-card">
-                        <img src="https://picsum.photos/id/150/200/200" alt="BSCI Certificate" class="cert-img">
+                    <div class="cert-card mx-auto">
+                        <img src="https://picsum.photos/id/200/200/200" alt="BSCI Certification" class="cert-img">
                     </div>
-                    <p class="mt-4 font-medium text-gray-700">BSCI Certification</p>
+                    <p class="mt-4 text-gray-700 font-medium">BSCI Certified</p>
                 </div>
                 <div class="text-center">
-                    <div class="cert-card">
-                        <img src="https://picsum.photos/id/151/200/200" alt="LFGB Certificate" class="cert-img">
+                    <div class="cert-card mx-auto">
+                        <img src="https://picsum.photos/id/201/200/200" alt="LFGB Certification" class="cert-img">
                     </div>
-                    <p class="mt-4 font-medium text-gray-700">LFGB Certification</p>
+                    <p class="mt-4 text-gray-700 font-medium">LFGB Certified</p>
                 </div>
                 <div class="text-center">
-                    <div class="cert-card">
-                        <img src="https://picsum.photos/id/152/200/200" alt="FDA Certificate" class="cert-img">
+                    <div class="cert-card mx-auto">
+                        <img src="https://picsum.photos/id/202/200/200" alt="FDA Certification" class="cert-img">
                     </div>
-                    <p class="mt-4 font-medium text-gray-700">FDA Certification</p>
+                    <p class="mt-4 text-gray-700 font-medium">FDA Certified</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 关于我们（补充完整） -->
+    <!-- 关于我们板块 -->
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="section-title">About YesYing</h2>
             <p class="section-subtitle">We are a professional manufacturer specializing in metal houseware and wire products with over 9 years of experience</p>
             
-            <div class="max-w-4xl mx-auto">
-                <div class="prose prose-lg text-gray-700 mx-auto">
-                    <p>YesYing is a leading manufacturer of metal houseware and wire products in China, committed to providing high-quality, innovative and cost-effective products to global customers. Our main products include fruit baskets, bathroom shelves, wine racks, shower chairs, egg baskets and various custom wire products.</p>
-                    <p>With a strong R&D team and strict quality control system, we have obtained BSCI, LFGB and FDA certifications, ensuring our products meet international standards. We offer OEM/ODM services to meet the unique needs of our customers, and our professional sales team with over 10 years of export experience can provide comprehensive trade and technical support.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        YesYing is a leading manufacturer of metal houseware products located in China. We specialize in the design, production and export of various wire products including fruit baskets, bathroom shelves, wine racks, shower chairs, egg baskets and more.
+                    </p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        With BSCI, LFGB and FDA certifications, we ensure our products meet international quality standards. Our factory has advanced production equipment and strict quality control system to guarantee product quality.
+                    </p>
+                    <p class="text-gray-700 mb-8 leading-relaxed">
+                        We offer OEM and ODM services to meet customized requirements from our customers worldwide. Our mission is to provide high-quality products at competitive prices with excellent customer service.
+                    </p>
+                    <a href="#contact" class="btn-primary">Contact Us Now</a>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <img src="https://picsum.photos/id/199/800/600" alt="YesYing Factory" class="w-full h-auto rounded-lg shadow-lg">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 联系我们（补充完整） -->
+    <!-- 联系我们板块 -->
     <section id="contact" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="section-title">Contact Us</h2>
-            <p class="section-subtitle">We are ready to answer your questions and provide professional quotes for your needs</p>
+            <p class="section-subtitle">We are ready to answer your questions and provide professional solutions for your metal houseware needs</p>
             
-            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-xl font-semibold mb-4 text-primary">Contact Information</h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <i class="fa fa-map-marker text-primary text-xl mt-1 mr-4"></i>
-                                <span>China - Zhejiang Province - Ningbo City</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa fa-envelope text-primary text-xl mt-1 mr-4"></i>
-                                <span>sales@yesyingmetal.com</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa fa-phone text-primary text-xl mt-1 mr-4"></i>
-                                <span>+86 138 **** 8888</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa fa-globe text-primary text-xl mt-1 mr-4"></i>
-                                <a href="https://yesying.en.alibaba.com/" target="_blank" class="text-primary hover:underline">yesying.en.alibaba.com</a>
-                            </li>
-                        </ul>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold mb-6 text-primary">Get In Touch</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary text-xl mt-1">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-secondary mb-1">Address</h4>
+                                <p class="text-gray-600">China, Jiangsu Province, Yangzhou City</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary text-xl mt-1">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-secondary mb-1">Email</h4>
+                                <p class="text-gray-600">sales@yesyingmetal.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary text-xl mt-1">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-secondary mb-1">Phone</h4>
+                                <p class="text-gray-600">+86 138 1234 5678</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-4 text-primary text-xl mt-1">
+                                <i class="fa fa-clock-o"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-secondary mb-1">Working Hours</h4>
+                                <p class="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM (GMT+8)</p>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-4 text-primary">Send Us a Message</h3>
-                        <form class="space-y-4">
-                            <div>
-                                <label class="block text-gray-700 mb-2" for="name">Your Name</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Enter your name">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2" for="email">Email Address</label>
-                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Enter your email">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2" for="message">Your Message</label>
-                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Tell us about your requirements"></textarea>
-                            </div>
-                            <button type="submit" class="btn-primary w-full">Send Message</button>
-                        </form>
+                    <div class="mt-8">
+                        <h4 class="font-medium text-secondary mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-300">
+                                <i class="fa fa-alibaba"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-300">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-300">
+                                <i class="fa fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold mb-6 text-primary">Send Us a Message</h3>
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2 text-sm">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="John Doe">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 mb-2 text-sm">Your Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="john@example.com">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 mb-2 text-sm">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Product Inquiry">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 mb-2 text-sm">Your Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Please describe your requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 页脚（补充完整） -->
-    <footer class="bg-secondary text-white py-12">
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="md:col-span-1">
-                    <img src="https://raw.githubusercontent.com/yesyingtext/yesyingtext/main/image/logo.jpg" 
-                         alt="YesYing Logo" 
-                         class="logo-footer bg-white/10 p-2 rounded-sm mb-4"
-                         onerror="this.src='https://picsum.photos/id/28/100/56';">
-                    <p class="text-gray-300 text-sm">Professional metal houseware manufacturer with BSCI & LFGB certification</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="mb-6">
+                        <img src="yesyingtext/image/logo.jpg" alt="YesYing Logo" class="logo-footer bg-white/10 p-2 rounded-sm"
+                             onerror="this.src='https://picsum.photos/id/28/100/56';">
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Professional metal houseware manufacturer with BSCI & LFGB certification, providing high-quality products and services worldwide.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fa fa-alibaba text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fa fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fa fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
-                        <li><a href="#products" class="hover:text-white transition-colors">Products</a></li>
-                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="#advantages" class="hover:text-white transition-colors">Why Us</a></li>
-                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    <h3 class="text-lg font-semibold mb-6 uppercase">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white transition-colors duration-300">Products</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300">About Us</a></li>
+                        <li><a href="#advantages" class="text-gray-400 hover:text-white transition-colors duration-300">Why Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Products</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="#products" class="hover:text-white transition-colors">Fruit Baskets</a></li>
-                        <li><a href="#products" class="hover:text-white transition-colors">Bathroom Shelves</a></li>
-                        <li><a href="#products" class="hover:text-white transition-colors">Wine Racks</a></li>
-                        <li><a href="#products" class="hover:text-white transition-colors">Shower Chairs</a></li>
-                        <li><a href="#products" class="hover:text-white transition-colors">Egg Baskets</a></li>
+                    <h3 class="text-lg font-semibold mb-6 uppercase">Our Products</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Fruit Baskets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Bathroom Shelves</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Wine Racks</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Shower Chairs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Egg Baskets</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-center"><i class="fa fa-envelope mr-2"></i> sales@yesyingmetal.com</li>
-                        <li class="flex items-center"><i class="fa fa-phone mr-2"></i> +86 138 **** 8888</li>
-                        <li class="flex items-center"><i class="fa fa-map-marker mr-2"></i> Ningbo, China</li>
+                    <h3 class="text-lg font-semibold mb-6 uppercase">Contact Us</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-400">China, Jiangsu Province, Yangzhou City</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-envelope text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-400">sales@yesyingmetal.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-400">+86 138 1234 5678</span>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
                 <p>© 2025 YesYing Metal Products Co., Ltd. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- 交互脚本 -->
+    <!-- JavaScript -->
     <script>
-        // 移动端菜单切换
+        // 移动端菜单
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // 轮播图功能
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-item');
-        const dots = document.querySelectorAll('.carousel-dot');
-        const totalSlides = slides.length;
-
-        // 切换轮播图
-        function showSlide(index) {
-            // 处理边界
-            if (index >= totalSlides) currentSlide = 0;
-            else if (index < 0) currentSlide = totalSlides - 1;
-            else currentSlide = index;
-
-            // 隐藏所有轮播图
-            slides.forEach(slide => {
-                slide.style.opacity = '0';
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
-
-            // 重置所有指示器
-            dots.forEach(dot => {
-                dot.classList.remove('bg-white/80');
-                dot.classList.add('bg-white/40');
-            });
-
-            // 显示当前轮播图
-            slides[currentSlide].style.opacity = '1';
-            // 激活当前指示器
-            dots[currentSlide].classList.remove('bg-white/40');
-            dots[currentSlide].classList.add('bg-white/80');
         }
 
-        // 下一张/上一张
-        document.querySelectorAll('.carousel-control').forEach(control => {
-            control.addEventListener('click', () => {
-                const direction = control.dataset.direction;
-                if (direction === 'next') showSlide(currentSlide + 1);
-                else showSlide(currentSlide - 1);
-            });
-        });
+        // 轮播图功能
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        const carouselControls = document.querySelectorAll('.carousel-control');
+        let currentSlide = 0;
+        let slideInterval;
 
-        // 点击指示器切换
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                showSlide(parseInt(dot.dataset.index));
+        function showSlide(index) {
+            // 隐藏所有轮播项
+            carouselItems.forEach(item => {
+                item.style.opacity = '0';
+                item.classList.remove('opacity-100');
+                item.classList.add('opacity-0');
             });
-        });
+            
+            // 重置所有指示器
+            carouselDots.forEach(dot => {
+                dot.classList.remove('bg-white/80', 'active');
+                dot.classList.add('bg-white/40');
+            });
+            
+            // 显示指定轮播项
+            if (index >= carouselItems.length) currentSlide = 0;
+            if (index < 0) currentSlide = carouselItems.length - 1;
+            
+            carouselItems[currentSlide].style.opacity = '1';
+            carouselItems[currentSlide].classList.remove('opacity-0');
+            carouselItems[currentSlide].classList.add('opacity-100');
+            
+            // 激活对应指示器
+            carouselDots[currentSlide].classList.remove('bg-white/40');
+            carouselDots[currentSlide].classList.add('bg-white/80', 'active');
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
 
         // 自动轮播
-        setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 5000);
+        function startSlideInterval() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
 
-        // 产品详情弹窗功能
-        const modal = document.getElementById('productDetailModal');
-        const closeModal = document.getElementById('closeProductModal');
-        const detailImage = document.getElementById('detailProductImage');
-        const detailName = document.getElementById('detailProductName');
-        const detailPrice = document.getElementById('detailProductPrice');
-        const detailMoq = document.getElementById('detailProductMoq');
-        const detailDesc = document.getElementById('detailProductDesc');
+        // 初始化轮播
+        if (carouselItems.length > 0) {
+            showSlide(currentSlide);
+            startSlideInterval();
+            
+            // 指示器点击事件
+            carouselDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(slideInterval);
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                    startSlideInterval();
+                });
+            });
+            
+            // 控制按钮点击事件
+            carouselControls.forEach(control => {
+                control.addEventListener('click', () => {
+                    clearInterval(slideInterval);
+                    if (control.dataset.direction === 'next') {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                    startSlideInterval();
+                });
+            });
+            
+            // 鼠标悬停时暂停轮播
+            document.getElementById('heroCarousel').addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            // 鼠标离开时恢复轮播
+            document.getElementById('heroCarousel').addEventListener('mouseleave', () => {
+                startSlideInterval();
+            });
+        }
 
-        // 打开弹窗
-        document.querySelectorAll('.view-product-details').forEach(btn => {
+        // 产品详情弹窗
+        const productDetailModal = document.getElementById('productDetailModal');
+        const closeProductModal = document.getElementById('closeProductModal');
+        const viewProductDetailsBtns = document.querySelectorAll('.view-product-details');
+        
+        // 关闭弹窗
+        if (closeProductModal) {
+            closeProductModal.addEventListener('click', () => {
+                productDetailModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+        }
+        
+        // 点击弹窗外部关闭
+        if (productDetailModal) {
+            productDetailModal.addEventListener('click', (e) => {
+                if (e.target === productDetailModal) {
+                    productDetailModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+        
+        // 打开产品详情弹窗
+        viewProductDetailsBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const productItem = btn.closest('.product-item');
-                const productImg = productItem.querySelector('img').src;
+                const productId = productItem.dataset.productId;
                 const productName = productItem.dataset.productName;
                 const productPrice = productItem.dataset.productPrice;
                 const productMoq = productItem.dataset.productMoq;
                 const productDesc = productItem.dataset.productDesc;
-
+                const productImage = productItem.querySelector('img').src;
+                
                 // 填充弹窗内容
-                detailImage.src = productImg;
-                detailImage.alt = productName;
-                detailName.textContent = productName;
-                detailPrice.textContent = productPrice;
-                detailMoq.textContent = `MOQ: ${productMoq}`;
-                detailDesc.textContent = productDesc;
-
+                document.getElementById('detailProductImage').src = productImage;
+                document.getElementById('detailProductImage').alt = productName;
+                document.getElementById('detailProductName').textContent = productName;
+                document.getElementById('detailProductPrice').textContent = productPrice;
+                document.getElementById('detailProductMoq').textContent = `MOQ: ${productMoq}`;
+                document.getElementById('detailProductDesc').textContent = productDesc;
+                
                 // 显示弹窗
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // 禁止背景滚动
+                productDetailModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
             });
-        });
-
-        // 关闭弹窗
-        closeModal.addEventListener('click', () => {
-            modal.classList.add('hidden');
-            document.body.style.overflow = ''; // 恢复背景滚动
-        });
-
-        // 点击弹窗外部关闭
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-                document.body.style.overflow = '';
-            }
         });
 
         // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+                
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 
                 if (targetElement) {
-                    // 关闭移动端菜单（如果打开）
-                    mobileMenu.classList.add('hidden');
+                    // 关闭移动端菜单
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
                     
                     // 平滑滚动到目标位置
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80, // 偏移导航栏高度
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
