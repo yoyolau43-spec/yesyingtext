@@ -203,7 +203,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // 2. 缩略图切换主图
+        // 2. 缩略图切换主图（步骤2核心功能）
         function changeMainImage(src) {
             const mainImg = document.getElementById('main-product-img');
             mainImg.src = src;
@@ -226,8 +226,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             // 产品数据库（新增产品只需在这里加数据）
             const productDatabase = {
-                // 产品1：洗澡椅
-                'shower-chair-001': {
+                // 产品1：水果篮（修正原ID错误，保持逻辑统一）
+                'fruit-basket-111': {
                     name: 'Chrome Metal Hammock Fruit Basket',
                     price: '$3.10-$4.10',
                     badge: 'BEST SELLER',
