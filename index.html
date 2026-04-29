@@ -9,7 +9,7 @@
     <!-- GitHub Pages 100% 兼容 CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind 配置 -->
     <script>
@@ -40,7 +40,7 @@
     </script>
     
     <!-- 自定义样式 -->
-    <style type="textailwindcss">
+    <style type="text/tailwindcss">
         @layer utilities {
             .content-auto { content-visibility: auto; }
             .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
@@ -78,25 +78,23 @@
             }
             .section-subtitle {
                 @apply text-center text-gray-600 mb-12 max-w-2xl mx-auto;
-                font-size: 1rem;
-                line-height: 1.6;
+                font-size: 1rem; line-height: 1.6;
             }
+
+            /* ✅ 按钮全部彻底美化 + 居中 + 工整 */
             .btn-primary {
-                @apply inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300;
-                font-size: 1rem; line-height: 1.2;
+                @apply inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 text-center h-[46px];
             }
             .btn-secondary {
-                @apply inline-block bg-secondary hover:bg-secondary/90 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300;
-                font-size: 1rem; line-height: 1.2;
+                @apply inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 text-center h-[46px];
             }
             .btn-outline {
-                @apply inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300;
-                font-size: 1rem; line-height: 1.2;
+                @apply inline-flex items-center justify-center border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 text-center h-[46px];
             }
             .hero-btn {
-                @apply px-10 py-4 text-lg font-medium rounded-lg transition-colors duration-300;
-                line-height: 1.2; letter-spacing: 0.02em;
+                @apply inline-flex items-center justify-center px-8 py-3.5 text-lg font-medium rounded-lg transition-colors duration-300 text-center h-[56px];
             }
+
             .hot-products-section { position: relative; overflow: hidden; }
             .hot-products-bg {
                 position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -117,11 +115,8 @@
             .product-card-price-row { @apply flex justify-between items-center my-2 h-8; }
             .product-price { @apply text-primary font-medium text-lg w-28 text-left; }
             .product-moq { @apply text-gray-500 text-sm w-24 text-right; }
-            .product-card-btn-container { @apply mt-0; margin-top: auto; }
-            .product-card-btn-container .btn-primary {
-                @apply w-full py-2 h-12 flex items-center justify-center;
-                padding: 0 !important;
-            }
+            .product-card-btn-container { @apply mt-auto; }
+            
             .cert-card { @apply w-48 h-48 bg-white rounded-lg shadow-md flex items-center justify-center mb-4 overflow-hidden; }
             .cert-img { @apply w-full h-full object-cover; }
             .clickable-card { cursor: pointer; }
@@ -227,7 +222,7 @@
     </div>
 </section>
 
-<!-- 热销产品（已插入你要的跳转代码）-->
+<!-- 热销产品 -->
 <section id="products" class="py-20 bg-white">
     <div class="container mx-auto px-4">
         <h2 class="section-title">Hot Selling Products</h2>
@@ -242,7 +237,7 @@
                     <p class="product-desc">With Banana Hanger Holder</p>
                     <div class="product-card-price-row"><span class="product-price">$3.10-$4.10</span><span class="product-moq">MOQ: 500</span></div>
                     <div class="product-card-btn-container">
-                        <a href="products-details.html?id=shower-chair-001" class="btn-primary w-full text-center">View Details</a>
+                        <a href="products-details.html?id=shower-chair-001" class="btn-primary w-full">View Details</a>
                     </div>
                 </div>
             </div>
@@ -255,7 +250,7 @@
                     <p class="product-desc">Chrome Metal Corner Shelf</p>
                     <div class="product-card-price-row"><span class="product-price">$3.29-$4.29</span><span class="product-moq">MOQ: 500</span></div>
                     <div class="product-card-btn-container">
-                        <a href="products-details.html?id=bathroom-shelf-001" class="btn-primary w-full text-center">View Details</a>
+                        <a href="products-details.html?id=bathroom-shelf-001" class="btn-primary w-full">View Details</a>
                     </div>
                 </div>
             </div>
@@ -268,7 +263,7 @@
                     <p class="product-desc">Steel Durable Wine Stand</p>
                     <div class="product-card-price-row"><span class="product-price">$2.90-$3.90</span><span class="product-moq">MOQ: 500</span></div>
                     <div class="product-card-btn-container">
-                        <a href="products-details.html?id=wine-rack-001" class="btn-primary w-full text-center">View Details</a>
+                        <a href="products-details.html?id=wine-rack-001" class="btn-primary w-full">View Details</a>
                     </div>
                 </div>
             </div>
@@ -281,7 +276,7 @@
                     <p class="product-desc">For Shoes, Cloth, Pantry</p>
                     <div class="product-card-price-row"><span class="product-price">$1.10-$2.10</span><span class="product-moq">MOQ: 500</span></div>
                     <div class="product-card-btn-container">
-                        <a href="products-details.html?id=bathroom-basket-001" class="btn-primary w-full text-center">View Details</a>
+                        <a href="products-details.html?id=bathroom-basket-001" class="btn-primary w-full">View Details</a>
                     </div>
                 </div>
             </div>
@@ -294,7 +289,7 @@
                     <p class="product-desc">Handmade Knitting Craft</p>
                     <div class="product-card-price-row"><span class="product-price">$2.10-$3.10</span><span class="product-moq">MOQ: 500</span></div>
                     <div class="product-card-btn-container">
-                        <a href="products-details.html?id=egg-basket-001" class="btn-primary w-full text-center">View Details</a>
+                        <a href="products-details.html?id=egg-basket-001" class="btn-primary w-full">View Details</a>
                     </div>
                 </div>
             </div>
@@ -307,7 +302,7 @@
                     <p class="product-desc">For Elderly, Disabled, Pregnant, Injured</p>
                     <div class="product-card-price-row"><span class="product-price">Contact for Price</span><span class="product-moq">MOQ: Consult</span></div>
                     <div class="product-card-btn-container">
-                        <a href="products-details.html?id=shower-chair-002" class="btn-primary w-full text-center">View Details</a>
+                        <a href="products-details.html?id=shower-chair-002" class="btn-primary w-full">View Details</a>
                     </div>
                 </div>
             </div>
@@ -320,7 +315,7 @@
                     <p class="product-desc">With Coco Coir Liner, Indoor & Outdoor</p>
                     <div class="product-card-price-row"><span class="product-price">$4.50-$5.00</span><span class="product-moq">MOQ: 500</span></div>
                     <div class="product-card-btn-container">
-                        <a href="products-details.html?id=flower-basket-001" class="btn-primary w-full text-center">View Details</a>
+                        <a href="products-details.html?id=flower-basket-001" class="btn-primary w-full">View Details</a>
                     </div>
                 </div>
             </div>
@@ -333,7 +328,7 @@
                     <p class="product-desc">Robust Iron Wire, Capacity: 4 Paper Rolls</p>
                     <div class="product-card-price-row"><span class="product-price">Contact for Price</span><span class="product-moq">MOQ: 500</span></div>
                     <div class="product-card-btn-container">
-                        <a href="products-details.html?id=paper-holder-001" class="btn-primary w-full text-center">View Details</a>
+                        <a href="products-details.html?id=paper-holder-001" class="btn-primary w-full">View Details</a>
                     </div>
                 </div>
             </div>
